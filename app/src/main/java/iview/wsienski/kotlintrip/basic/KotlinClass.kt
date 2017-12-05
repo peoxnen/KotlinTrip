@@ -3,7 +3,7 @@ package iview.wsienski.kotlintrip.basic
 /**
  * Created by Witold Sienski on 05.12.2017.
  */
-class KotlinClass {
+open class KotlinClass {
 
     fun nullSafety() {
         var name: String? = null

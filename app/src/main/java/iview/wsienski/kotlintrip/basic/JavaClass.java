@@ -19,4 +19,10 @@ public class JavaClass {
             //this throws NullPointerException
         }
     }
+
+    public boolean isEmail(String email) {
+        if (email == null || email.length() <= 0)
+            return false;
+        return email.contains("@");
+    }
 }
