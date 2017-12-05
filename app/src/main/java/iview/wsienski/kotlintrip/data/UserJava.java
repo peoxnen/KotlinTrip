@@ -42,4 +42,24 @@ public class UserJava {
                 ", surname='" + surname + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserJava userJava = (UserJava) o;
+
+        if (id != userJava.id) return false;
+        if (name != null ? !name.equals(userJava.name) : userJava.name != null) return false;
+        return surname != null ? surname.equals(userJava.surname) : userJava.surname == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        return result;
+    }
 }
