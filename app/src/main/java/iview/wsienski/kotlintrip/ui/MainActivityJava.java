@@ -15,6 +15,7 @@ import java.util.List;
 
 import iview.wsienski.kotlintrip.R;
 import iview.wsienski.kotlintrip.data.inheritance.DogJava;
+import iview.wsienski.kotlintrip.data.properties.LanguageJava;
 
 /**
  * Created by WSienski on 20/12/2017.
@@ -27,8 +28,11 @@ public class MainActivityJava extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LanguageJava languageJava = new LanguageJava();
+        languageJava.setName("Java");
+
         TextView msg = findViewById(R.id.message);
-        msg.setText("Java");
+        msg.setText(languageJava.getName());
 
         Button btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +49,7 @@ public class MainActivityJava extends AppCompatActivity {
         items.add("Kotlin");
         items.add("Java");
         items.add("C++");
+
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ListAdapterJava(items));

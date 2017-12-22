@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import iview.wsienski.kotlintrip.R.layout.activity_main
-import iview.wsienski.kotlintrip.syntax.toast
 import iview.wsienski.kotlintrip.data.inheritance.DogKotlin
+import iview.wsienski.kotlintrip.data.properties.LanguageKotlin
+import iview.wsienski.kotlintrip.syntax.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivityKotlin : AppCompatActivity() {
@@ -14,7 +15,9 @@ class MainActivityKotlin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
 
-        message.text = "Kotlin"
+        val lang = LanguageKotlin()
+        lang.name = "Kotlin"
+        message.text = lang.name
         //lambda
         btn.setOnClickListener {
             val dog = DogKotlin("Rex", "sheep-dog")
