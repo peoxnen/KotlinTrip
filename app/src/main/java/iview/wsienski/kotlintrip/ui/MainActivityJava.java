@@ -3,10 +3,15 @@ package iview.wsienski.kotlintrip.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import iview.wsienski.kotlintrip.R;
 import iview.wsienski.kotlintrip.data.inheritance.DogJava;
@@ -35,6 +40,14 @@ public class MainActivityJava extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), dogJava.greetingsTxt(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        List<String> items = new ArrayList<>();
+        items.add("Kotlin");
+        items.add("Java");
+        items.add("C++");
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new ListAdapterJava(items));
     }
 
 }
