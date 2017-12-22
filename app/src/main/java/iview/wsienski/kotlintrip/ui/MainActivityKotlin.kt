@@ -1,16 +1,17 @@
-package iview.wsienski.kotlintrip
+package iview.wsienski.kotlintrip.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import iview.wsienski.kotlintrip.R.layout.activity_main
 import iview.wsienski.kotlintrip.basic.toast
 import iview.wsienski.kotlintrip.data.inheritance.DogKotlin
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivityKotlin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(activity_main)
 
         message.text = "Kotlin"
         //lambda
