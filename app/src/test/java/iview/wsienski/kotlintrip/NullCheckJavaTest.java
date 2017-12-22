@@ -3,27 +3,27 @@ package iview.wsienski.kotlintrip;
 import org.junit.Assert;
 import org.junit.Test;
 
-import iview.wsienski.kotlintrip.basic.JavaClass;
+import iview.wsienski.kotlintrip.basic.NullCheckJava;
 
 /**
  * Created by Witold Sienski on 06.12.2017.
  */
 
-public class JavaClassTest {
+public class NullCheckJavaTest {
 
     @Test
     public void isEmailCorrect(){
         String email = "test@test.pl";
-        JavaClass javaClass = new JavaClass();
+        NullCheckJava nullCheckJava = new NullCheckJava();
 
-        Assert.assertTrue(javaClass.isEmail(email));
+        Assert.assertTrue(nullCheckJava.isEmail(email));
     }
 
     @Test
     public void isEmailNotCorrectForNull(){
         String email = null;
-        JavaClass javaClass = new JavaClass();
+        NullCheckJava nullCheckJava = new NullCheckJava();
 
-        Assert.assertFalse(javaClass.isEmail(email));
+        Assert.assertFalse(nullCheckJava.isEmail(email));
     }
 }

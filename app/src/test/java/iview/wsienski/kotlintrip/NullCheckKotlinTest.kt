@@ -8,7 +8,7 @@ import org.junit.Test
 /**
  * Created by Witold Sienski on 06.12.2017.
  */
-class KotlinClassTest {
+class NullCheckKotlinTest {
 
     @Test
     fun isEmailCorrect() {

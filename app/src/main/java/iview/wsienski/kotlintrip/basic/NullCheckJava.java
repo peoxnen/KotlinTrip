@@ -4,7 +4,7 @@ package iview.wsienski.kotlintrip.basic;
  * Created by Witold Sienski on 05.12.2017.
  */
 
-public class JavaClass {
+public class NullCheckJava {
 
     void nullSafety() {
         String name = null;
