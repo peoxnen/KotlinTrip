@@ -16,12 +16,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import iview.wsienski.kotlintrip.Constants;
 import iview.wsienski.kotlintrip.R;
+import iview.wsienski.kotlintrip.data.data.RepoJava;
 import iview.wsienski.kotlintrip.data.inheritance.DogJava;
 import iview.wsienski.kotlintrip.data.properties.LanguageJava;
 import timber.log.Timber;
@@ -54,14 +57,8 @@ public class MainActivityJava extends AppCompatActivity {
             }
         });
 
-        List<String> items = new ArrayList<>();
-        items.add("Kotlin");
-        items.add("Java");
-        items.add("C++");
-
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        final RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ListAdapterJava(items));
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.Companion.getURL(),
@@ -69,7 +66,19 @@ public class MainActivityJava extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Timber.d(response);
-                        Toast.makeText(getBaseContext(), "Request OK", Toast.LENGTH_SHORT).show();
+                        List<RepoJava> items = new Gson().fromJson(response, new TypeToken<ArrayList<RepoJava>>() {
+                        }.getType());
+
+                        List<String> itemsToShow = new ArrayList<>();
+                        for (RepoJava item : items) {
+                            itemsToShow.add(String.format("Name: %s, Owner: %s", item.getName(), item.getOwner().getLogin()));
+                        }
+
+                        recyclerView.setAdapter(new ListAdapterJava(itemsToShow));
+                        Toast.makeText(getBaseContext(),
+                                String.format("Request OK. The number of repositories is %s", items.size()),
+                                Toast.LENGTH_SHORT)
+                                .show();
                     }
                 }, new Response.ErrorListener() {
             @Override
