@@ -11,5 +11,5 @@ fun String.isEmail(): Boolean{
 }
 
 fun AppCompatActivity.toast(txt: String){
-    return Toast.makeText(this, txt, Toast.LENGTH_SHORT).show();
+    return Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
 }

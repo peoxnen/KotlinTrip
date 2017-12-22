@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import iview.wsienski.kotlintrip.data.inheritance.DogJava;
+
 /**
  * Created by WSienski on 20/12/2017.
  */
@@ -21,13 +23,15 @@ public class MainActivityJava extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView msg = findViewById(R.id.message);
-        msg.setText("Hello");
+        msg.setText("Java");
 
         Button btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getParent(), "Java", Toast.LENGTH_SHORT).show();
+                DogJava dogJava = new DogJava("Rex", "sheep-dog");
+                dogJava.greet();
+                Toast.makeText(getParent(), dogJava.greetingsTxt(), Toast.LENGTH_SHORT).show();
             }
         });
     }
