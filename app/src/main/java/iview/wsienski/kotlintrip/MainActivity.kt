@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             val dog = DogKotlin("Rex", "sheep-dog")
             dog.greet()
+            dog.makeCommand("Jump")
             toast(txt = dog.greetingsTxt())
         }
 

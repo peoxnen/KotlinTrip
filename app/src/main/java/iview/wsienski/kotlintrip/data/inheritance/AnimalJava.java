@@ -14,11 +14,19 @@ public class AnimalJava {
         this.name = name;
     }
 
-    public void greet(){
+    public void greet() {
         Timber.d("Hello my name is %s", name);
     }
 
-    public String greetingsTxt(){
+    public String greetingsTxt() {
         return String.format("Hello my name is %s", name);
+    }
+
+    public void makeCommand(String command) {
+        makeCommand(command, 1);
+    }
+
+    public void makeCommand(String command, int times) {
+        for (int i = 0; i < times; i++) Timber.d("Make command %s", command);
     }
 }

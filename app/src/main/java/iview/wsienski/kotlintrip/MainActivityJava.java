@@ -31,6 +31,7 @@ public class MainActivityJava extends AppCompatActivity {
             public void onClick(View v) {
                 DogJava dogJava = new DogJava("Rex", "sheep-dog");
                 dogJava.greet();
+                dogJava.makeCommand("Jump");
                 Toast.makeText(getParent(), dogJava.greetingsTxt(), Toast.LENGTH_SHORT).show();
             }
         });
