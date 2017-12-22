@@ -7,7 +7,7 @@
     tools:context="iview.wsienski.kotlintrip.MainActivity">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -18,9 +18,9 @@
 
     <Button
         android:id="@+id/btn"
-        app:layout_constraintTop_toBottomOf="@id/text"
-        app:layout_constraintStart_toStartOf="@id/text"
-        app:layout_constraintEnd_toEndOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@id/message"
+        app:layout_constraintStart_toStartOf="@id/message"
+        app:layout_constraintEnd_toEndOf="@id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Click"/>

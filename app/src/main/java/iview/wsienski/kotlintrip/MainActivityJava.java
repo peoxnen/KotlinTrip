@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -19,11 +20,14 @@ public class MainActivityJava extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView msg = findViewById(R.id.message);
+        msg.setText("Hello");
+
         Button btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getParent(), "Hello Java", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getParent(), "Java", Toast.LENGTH_SHORT).show();
             }
         });
     }
