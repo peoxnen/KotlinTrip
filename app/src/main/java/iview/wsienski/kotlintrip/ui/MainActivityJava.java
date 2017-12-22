@@ -10,12 +10,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import iview.wsienski.kotlintrip.Constants;
 import iview.wsienski.kotlintrip.R;
 import iview.wsienski.kotlintrip.data.inheritance.DogJava;
 import iview.wsienski.kotlintrip.data.properties.LanguageJava;
+import timber.log.Timber;
 
 /**
  * Created by WSienski on 20/12/2017.
@@ -53,6 +62,22 @@ public class MainActivityJava extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ListAdapterJava(items));
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.Companion.getURL(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Timber.d(response);
+                        Toast.makeText(getBaseContext(), "Request OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getBaseContext(), "Request error", Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(stringRequest);
     }
 
 }
