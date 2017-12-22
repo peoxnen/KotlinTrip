@@ -1,4 +1,4 @@
-package iview.wsienski.kotlintrip.basic
+package iview.wsienski.kotlintrip.syntax
 
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast

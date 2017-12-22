@@ -1,4 +1,4 @@
-package iview.wsienski.kotlintrip.basic
+package iview.wsienski.kotlintrip.syntax.nullcheck
 
 /**
  * Created by Witold Sienski on 05.12.2017.

@@ -3,7 +3,7 @@ package iview.wsienski.kotlintrip;
 import org.junit.Assert;
 import org.junit.Test;
 
-import iview.wsienski.kotlintrip.basic.NullCheckJava;
+import iview.wsienski.kotlintrip.syntax.nullcheck.NullCheckJava;
 
 /**
  * Created by Witold Sienski on 06.12.2017.

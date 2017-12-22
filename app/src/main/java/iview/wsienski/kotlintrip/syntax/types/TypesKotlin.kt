@@ -1,4 +1,4 @@
-package iview.wsienski.kotlintrip.basic
+package iview.wsienski.kotlintrip.syntax.types
 
 /**
  * Created by WSienski on 22/12/2017.

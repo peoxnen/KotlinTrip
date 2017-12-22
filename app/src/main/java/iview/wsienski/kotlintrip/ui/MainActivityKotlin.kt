@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import iview.wsienski.kotlintrip.R.layout.activity_main
-import iview.wsienski.kotlintrip.basic.toast
+import iview.wsienski.kotlintrip.syntax.toast
 import iview.wsienski.kotlintrip.data.inheritance.DogKotlin
 import kotlinx.android.synthetic.main.activity_main.*
 

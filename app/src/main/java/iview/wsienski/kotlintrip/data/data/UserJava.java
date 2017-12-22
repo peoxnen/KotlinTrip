@@ -1,4 +1,4 @@
-package iview.wsienski.kotlintrip.data;
+package iview.wsienski.kotlintrip.data.data;
 
 /**
  * Created by Witold Sienski on 05.12.2017.

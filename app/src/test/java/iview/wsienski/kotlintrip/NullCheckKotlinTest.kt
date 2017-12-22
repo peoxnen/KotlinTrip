@@ -1,6 +1,6 @@
 package iview.wsienski.kotlintrip
 
-import iview.wsienski.kotlintrip.basic.isEmail
+import iview.wsienski.kotlintrip.syntax.isEmail
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
