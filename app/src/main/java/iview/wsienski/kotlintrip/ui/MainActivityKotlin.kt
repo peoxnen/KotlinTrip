@@ -33,15 +33,10 @@ class MainActivityKotlin : AppCompatActivity() {
 
         doAsync {
             val result = RepoCommand().run()
-            val reposNames = result.mapIndexed { _, repoKotlin
-                ->
-                with(repoKotlin) {
-                    "Name: $name, Owner: $owner"
-                }
-            }
+
             uiThread {
                 toast("Request OK. The number of repositories is ${result.size}")
-                recycler.adapter = ListAdapterKotlin(reposNames)
+                recycler.adapter = ListAdapterKotlin(result)
             }
         }
 

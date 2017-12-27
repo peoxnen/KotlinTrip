@@ -27,6 +27,7 @@ import iview.wsienski.kotlintrip.R;
 import iview.wsienski.kotlintrip.data.data.RepoJava;
 import iview.wsienski.kotlintrip.data.inheritance.DogJava;
 import iview.wsienski.kotlintrip.data.properties.LanguageJava;
+import iview.wsienski.kotlintrip.domain.mapper.RepoMapper;
 import timber.log.Timber;
 
 /**
@@ -69,12 +70,8 @@ public class MainActivityJava extends AppCompatActivity {
                         List<RepoJava> items = new Gson().fromJson(response, new TypeToken<ArrayList<RepoJava>>() {
                         }.getType());
 
-                        List<String> itemsToShow = new ArrayList<>();
-                        for (RepoJava item : items) {
-                            itemsToShow.add(String.format("Name: %s, Owner: %s", item.getName(), item.getOwner().getLogin()));
-                        }
-
-                        recyclerView.setAdapter(new ListAdapterJava(itemsToShow));
+                        RepoMapper repoMapper = new RepoMapper();
+                        recyclerView.setAdapter(new ListAdapterJava(repoMapper.convertFromDataModelToDomain(items)));
                         Toast.makeText(getBaseContext(),
                                 String.format("Request OK. The number of repositories is %s", items.size()),
                                 Toast.LENGTH_SHORT)
