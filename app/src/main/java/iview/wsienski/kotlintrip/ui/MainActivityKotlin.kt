@@ -3,11 +3,10 @@ package iview.wsienski.kotlintrip.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import iview.wsienski.kotlintrip.Constants
 import iview.wsienski.kotlintrip.R.layout.activity_main
 import iview.wsienski.kotlintrip.data.inheritance.DogKotlin
 import iview.wsienski.kotlintrip.data.properties.LanguageKotlin
-import iview.wsienski.kotlintrip.network.Request
+import iview.wsienski.kotlintrip.domain.command.RepoCommand
 import iview.wsienski.kotlintrip.syntax.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
@@ -33,11 +32,11 @@ class MainActivityKotlin : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
 
         doAsync {
-            val result = Request(Constants.URL).run()
-            val reposNames = result.mapIndexed { index, repoKotlin
+            val result = RepoCommand().run()
+            val reposNames = result.mapIndexed { _, repoKotlin
                 ->
                 with(repoKotlin) {
-                    "Name: $name, Owner: ${owner.login}"
+                    "Name: $name, Owner: $owner"
                 }
             }
             uiThread {
